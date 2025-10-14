@@ -2,7 +2,11 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.detekt)
 }
+
+// Apply verification tasks
+apply(from = "../verification.gradle.kts")
 
 android {
     namespace = "org.deafsapps.mobile.kmpflagship.android"
