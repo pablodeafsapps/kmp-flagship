@@ -10,11 +10,11 @@ apply(from = "../verification.gradle.kts")
 
 android {
     namespace = "org.deafsapps.mobile.kmpflagship.android"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "org.deafsapps.mobile.kmpflagship.android"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }

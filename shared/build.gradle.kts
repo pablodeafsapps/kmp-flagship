@@ -37,13 +37,14 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+            implementation(libs.konsist)
         }
     }
 }
 
 android {
     namespace = "org.deafsapps.mobile.kmpflagship"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 24
     }
