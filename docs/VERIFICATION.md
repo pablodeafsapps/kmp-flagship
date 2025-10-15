@@ -116,5 +116,5 @@ brew install swiftlint
 ./gradlew detekt --info
 
 # Check Detekt configuration
-cat detekt.yml
+cat config/detekt/detekt.yml
 ```

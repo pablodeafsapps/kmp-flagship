@@ -1,7 +1,7 @@
 ---
 description: Project structure based on Clean Architecture
 globs: 
-alwaysApply: tue
+alwaysApply: true
 ---
 # Project Structure Structure
 
