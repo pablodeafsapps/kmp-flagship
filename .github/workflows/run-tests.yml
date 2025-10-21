@@ -2,9 +2,9 @@ name: Tests
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, feature/* ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, feature/* ]
 
 concurrency:
   group: tests-${{ github.ref }}
@@ -48,5 +48,3 @@ jobs:
 
       - name: Run Android unit tests
         run: ./gradlew :androidApp:testDebugUnitTest --no-daemon
-
-

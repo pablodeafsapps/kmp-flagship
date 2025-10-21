@@ -54,7 +54,5 @@ jobs:
       - name: Detekt
         run: ./gradlew detekt --no-daemon
 
-      - name: Konsist
-        run: ./gradlew konsist --no-daemon
-
-
+#      - name: Konsist
+#        run: ./gradlew konsist --no-daemon

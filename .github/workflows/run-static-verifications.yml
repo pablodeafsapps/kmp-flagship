@@ -2,9 +2,9 @@ name: Verification
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, feature/* ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, feature/* ]
 
 concurrency:
   group: verification-${{ github.ref }}
@@ -30,8 +30,8 @@ jobs:
       - name: Run Detekt
         run: ./gradlew detekt --no-daemon
 
-      - name: Run Konsist
-        run: ./gradlew konsist --no-daemon
+#      - name: Run Konsist
+#        run: ./gradlew konsist --no-daemon
 
   swiftlint:
     name: SwiftLint (iOS)
@@ -48,5 +48,3 @@ jobs:
 
       - name: Run SwiftLint via Gradle task
         run: ./gradlew swiftlint --no-daemon
-
-

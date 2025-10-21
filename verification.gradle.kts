@@ -29,23 +29,23 @@ if (project == project.rootProject) {
 }
 
 // Konsist task for architecture validation
-tasks.register("konsist") {
-    group = "verification"
-    description = "Run Konsist architecture and code quality checks"
-    
-    doFirst {
-        println("Running Konsist architecture validation...")
-        println("Note: Konsist tests are available in the test suite.")
-        println("Run './gradlew :shared:testDebugUnitTest --tests \"*CleanArchitectureTest*\"' to execute Konsist rules.")
-    }
-    
-    doLast {
-        println("Konsist architecture validation completed!")
-        println("To run Konsist tests manually:")
-        println("  ./gradlew :shared:testDebugUnitTest --tests \"*CleanArchitectureTest*\"")
-        println("  ./gradlew :shared:testDebugUnitTest --tests \"*CodeQualityTest*\"")
-    }
-}
+//tasks.register("konsist") {
+//    group = "verification"
+//    description = "Run Konsist architecture and code quality checks"
+//
+//    doFirst {
+//        println("Running Konsist architecture validation...")
+//        println("Note: Konsist tests are available in the test suite.")
+//        println("Run './gradlew :shared:testDebugUnitTest --tests \"*CleanArchitectureTest*\"' to execute Konsist rules.")
+//    }
+//
+//    doLast {
+//        println("Konsist architecture validation completed!")
+//        println("To run Konsist tests manually:")
+//        println("  ./gradlew :shared:testDebugUnitTest --tests \"*CleanArchitectureTest*\"")
+//        println("  ./gradlew :shared:testDebugUnitTest --tests \"*CodeQualityTest*\"")
+//    }
+//}
 
 // Combined linting task (only register at root level)
 if (project == project.rootProject) {
@@ -58,8 +58,9 @@ if (project == project.rootProject) {
             dependsOn("detekt")
         }
         
-        dependsOn("swiftlint", "konsist")
-        
+//        dependsOn("swiftlint", "konsist")
+        dependsOn("swiftlint")
+
         doLast {
             println("All linting tasks completed successfully!")
         }
