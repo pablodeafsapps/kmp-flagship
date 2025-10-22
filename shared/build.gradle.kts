@@ -3,9 +3,15 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.detekt)
 }
 
+// Apply verification tasks
+apply(from = "../verification.gradle.kts")
+
 kotlin {
+    jvm()
+
     androidTarget {
         compilations.all {
             compileTaskProvider.configure {
@@ -34,12 +40,23 @@ kotlin {
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
+        jvmTest.dependencies {
+            implementation(libs.konsist)
+            implementation(libs.junit.jupiter.api)
+            runtimeOnly(libs.junit.jupiter.engine)
+        }
+    }
+
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
+        }
     }
 }
 
 android {
     namespace = "org.deafsapps.mobile.kmpflagship"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 24
     }

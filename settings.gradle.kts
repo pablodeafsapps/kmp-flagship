@@ -15,5 +15,6 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "KMP_Flagship"
+
 include(":androidApp")
 include(":shared")
