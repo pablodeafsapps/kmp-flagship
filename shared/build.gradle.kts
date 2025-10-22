@@ -10,6 +10,8 @@ plugins {
 apply(from = "../verification.gradle.kts")
 
 kotlin {
+    jvm()
+
     androidTarget {
         compilations.all {
             compileTaskProvider.configure {
@@ -37,6 +39,17 @@ kotlin {
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+        jvmTest.dependencies {
+            implementation(libs.konsist)
+            implementation(libs.junit.jupiter.api)
+            runtimeOnly(libs.junit.jupiter.engine)
+        }
+    }
+
+    jvm {
+        testRuns["test"].executionTask.configure {
+            useJUnitPlatform()
         }
     }
 }
